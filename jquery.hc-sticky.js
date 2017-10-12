@@ -9,7 +9,18 @@
 // License: Released under the MIT License www.opensource.org/licenses/mit-license.php
 // Description: Cross-browser jQuery plugin that makes any element attached to the page and always visible while you scroll.
 
-(function($, window, undefined) {
+// wrap in UMD - see https://github.com/umdjs/umd/blob/master/jqueryPluginCommonjs.js
+(function(factory) {
+    if (typeof define === "function" && define.amd) {
+        define([ "jquery" ], function($) {
+            factory($, window, document);
+        });
+    } else if (typeof module === "object" && module.exports) {
+        module.exports = factory(require("jquery"), window, document);
+    } else {
+        factory(jQuery, window, document);
+    }
+})(function($, window, undefined) {
 	"use strict";
 
 	// console.log shortcut
@@ -633,7 +644,7 @@
 		}
 	});
 
-})(jQuery, this);
+});
 
 
 
@@ -646,7 +657,18 @@
 // Website: http://someweblog.com/
 // License: Released under the MIT License www.opensource.org/licenses/mit-license.php
 
-(function($, undefined) {
+// wrap in UMD - see https://github.com/umdjs/umd/blob/master/jqueryPluginCommonjs.js
+(function(factory) {
+    if (typeof define === "function" && define.amd) {
+        define([ "jquery" ], function($) {
+            factory($, window, document);
+        });
+    } else if (typeof module === "object" && module.exports) {
+        module.exports = factory(require("jquery"), window, document);
+    } else {
+        factory(jQuery, window, document);
+    }
+})(function($, window, undefined) {
 	"use strict";
 
 	$.fn.extend({
@@ -697,4 +719,4 @@
 
 	});
 
-})(jQuery);
+});
